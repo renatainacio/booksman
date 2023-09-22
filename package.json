@@ -4,7 +4,11 @@
   "description": "Book Manager Application",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "start": "npm run migrate:deploy && node dist/index.js",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",

@@ -3,6 +3,7 @@ export type Book = {
   title: string;
   author: string;
   publisher: string;
+  cover?: string;
   purchaseDate: Date;
   read: boolean;
   review: string;

@@ -19,16 +19,17 @@ export async function getBook(id: number) {
 }
 
 export async function createBook(book: CreateBook) {
-  const result = await prisma.books.create({
-    data: {
-      title: book.title,
-      author: book.author,
-      publisher: book.publisher,
-      purchaseDate: new Date(book.purchaseDate)
-    }
+  const bookData = {
+    title: book.title,
+    author: book.author,
+    publisher: book.publisher,
+    cover: "",
+    purchaseDate: new Date(book.purchaseDate)
+  }
+  book.cover ? bookData.cover: book.cover;
+  await prisma.books.create({
+    data: bookData
   });
-
-  return result;
 }
 
 export async function reviewBook(bookReview: CreateReview) {
